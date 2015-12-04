@@ -22,7 +22,8 @@
     // uncoment to run a method
     // [self sumZero];
     // [self reverseString];
-    [self findElementsFromThreeArrays];
+    // [self findElementsFromThreeArrays];
+    [self generateFibonnaciSeries];
 }
 
 // Given an array of integers [-1,1,2,4,3] return true if there are 2 elements that sums 0
@@ -89,7 +90,18 @@
             }
         }
     }
+}
 
+// Generate the first 20 numbers in Fibonacci Series
+-(void)generateFibonnaciSeries{
+
+    NSMutableArray *mArray = [[NSMutableArray alloc] initWithObjects:@0,@1, nil];
+
+    for (int i=2; i<20; i++)
+    {
+        [mArray addObject:[NSNumber numberWithDouble:[[mArray objectAtIndex:i-1] intValue] +[[mArray objectAtIndex:i-2] intValue]]];
+    }
+    NSLog(@"mArray %@",mArray);
 }
 
 @end
