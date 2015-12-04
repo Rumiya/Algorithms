@@ -10,18 +10,39 @@
 
 @interface ViewController ()
 
+@property (strong,nonatomic) NSArray *arrayNum;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    [self sumZero];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// Given an array of integers [-1,1,2,4,3] return true if there are 2 elements that sums 0
+- (void)sumZero {
+    self.arrayNum = [[NSArray alloc] initWithObjects: @-1,@1,@2,@4,@3,nil];
+
+    for (int i=0; i<self.arrayNum.count; i++)
+    {
+        for (int j=i+1; j<self.arrayNum.count; j++)
+        {
+            NSInteger iValue = [[self.arrayNum objectAtIndex:i] integerValue];
+            NSInteger jValue = [[self.arrayNum objectAtIndex:j] integerValue];
+            NSInteger k = iValue+ jValue;
+            if (k==0) {
+                NSLog(@"%ld + %ld = %ld Zero!",(long)iValue,(long)jValue,(long)k);
+            } else {
+                NSLog(@"%ld + %ld = %ld",(long)iValue,(long)jValue,(long)k);
+            }
+        }
+
+    }
+
 }
+
 
 @end
