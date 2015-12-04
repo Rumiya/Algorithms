@@ -19,7 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self sumZero];
+    // uncoment to run a method
+    // [self sumZero];
+    [self reverseString];
 }
 
 // Given an array of integers [-1,1,2,4,3] return true if there are 2 elements that sums 0
@@ -41,6 +43,22 @@
         }
 
     }
+
+}
+
+// Reverse NSString text
+- (void)reverseString {
+    NSString *myString = @"Plot Twist";
+    NSMutableString *reversedString = [NSMutableString string];
+    NSInteger stringLength = [myString length];
+
+    while (stringLength > 0) {
+        stringLength --;
+        NSRange subStrRange = NSMakeRange(stringLength, 1);
+        [reversedString appendString:[myString substringWithRange:subStrRange]];
+    }
+
+    NSLog(@"%@",reversedString);
 
 }
 
