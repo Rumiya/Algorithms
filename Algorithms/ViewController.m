@@ -23,7 +23,9 @@
     // [self sumZero];
     // [self reverseString];
     // [self findElementsFromThreeArrays];
-    [self generateFibonnaciSeries];
+    // [self generateFibonnaciSeries];
+    // [self oddNumbers];
+    [self evenNumbers];
 }
 
 // Given an array of integers [-1,1,2,4,3] return true if there are 2 elements that sums 0
@@ -77,6 +79,7 @@
     [abcArray addObjectsFromArray:bArray];
     [abcArray addObjectsFromArray:cArray];
 
+
     NSCountedSet *abcCountSet = [[NSCountedSet alloc] initWithArray:abcArray];
 
     NSMutableArray *resultArray = [[NSMutableArray alloc] init];
@@ -102,6 +105,24 @@
         [mArray addObject:[NSNumber numberWithDouble:[[mArray objectAtIndex:i-1] intValue] +[[mArray objectAtIndex:i-2] intValue]]];
     }
     NSLog(@"mArray %@",mArray);
+}
+
+// Generate odd numbers 1 - 100
+-(void)oddNumbers{
+    for (int i=1; i<=100; i++) {
+        if ((i % 2) != 0) {
+            NSLog(@"%d",i);
+        }
+    }
+}
+
+// Generate even numbers 1 - 100
+-(void)evenNumbers{
+    for (int i=1; i<=100; i++) {
+        if ((i % 2) == 0) {
+            NSLog(@"%d",i);
+        }
+    }
 }
 
 @end
