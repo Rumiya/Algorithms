@@ -25,7 +25,8 @@
     // [self findElementsFromThreeArrays];
     // [self generateFibonnaciSeries];
     // [self oddNumbers];
-    [self evenNumbers];
+    // [self evenNumbers];
+    [self removeSpaceFromString:@"Gohst Busters"];
 }
 
 // Given an array of integers [-1,1,2,4,3] return true if there are 2 elements that sums 0
@@ -124,5 +125,33 @@
         }
     }
 }
+
+// Easy: Ghostbusters : write a function that removes all whitespace from a sting.
+// If the string has no whitespace, return a witty comment.
+-(void)removeSpaceFromString:(NSString *)str{
+
+    BOOL result = false;
+    NSInteger stringLength = [str length];
+    NSString *singleChar;
+    NSString *newString = @"";
+
+    for (NSInteger i=0; i<stringLength; i++) {
+
+        singleChar = [str substringWithRange:NSMakeRange(i, 1)];
+
+        if ([singleChar isEqualToString:@" "]){
+            result = true;
+        } else {
+            newString = [newString stringByAppendingString:singleChar];
+        }
+    }
+
+    if (result) {
+        NSLog(@"%@",newString);
+    } else {
+        NSLog(@"Call Ghost Killers!");
+    }
+}
+
 
 @end
