@@ -26,7 +26,8 @@
     // [self generateFibonnaciSeries];
     // [self oddNumbers];
     // [self evenNumbers];
-    [self removeSpaceFromString:@"Gohst Busters"];
+    // [self removeSpaceFromString:@"Gohst Busters"];
+    [self polydisibility:@"12320"];
 }
 
 // Given an array of integers [-1,1,2,4,3] return true if there are 2 elements that sums 0
@@ -153,5 +154,32 @@
     }
 }
 
+// polydivisibility: from left to right each digit is divisible by 1, then 2, then 3 etc w/out reminder
+// 12320
+// 1/1 = 1 true
+// 12/2 = 6 true
+// 123/3 = 41 true
+// 1232/4 = 308 true
+// 12320/5 = 2464 true
+
+-(BOOL)polydisibility:(NSString *)str{
+    BOOL result = false;
+    NSInteger stringLegth = [str length];
+    NSString *stringLeftToRight;
+    for (NSInteger i=1; i<=stringLegth; i++){
+        stringLeftToRight = [str substringWithRange:NSMakeRange(0, i)];
+        NSInteger numberToCheck = [stringLeftToRight integerValue];
+
+        if ((numberToCheck % i)==0) {
+            result = true;
+        } else {
+            result = false;
+            break;
+        }
+    }
+     NSLog(@"%@", result ? @"true": @"false");
+
+    return result;
+}
 
 @end
